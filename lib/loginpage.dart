@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'socialloginbutton.dart';
-import 'dash.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _isHidden = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Welcome back you\'ve\nbeen missed!',
+                  'Wellcome back you\'ve\nbeen missed!',
                   style: TextStyle(fontSize: 20, color: Colors.grey.shade700),
                   textAlign: TextAlign.center,
                 ),
@@ -58,14 +64,15 @@ class LoginPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8),
                     child: TextField(
+                      obscureText: _isHidden,
                       onTapOutside: (event) {
                         FocusManager.instance.primaryFocus?.unfocus();
                       },
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         hintText: 'Password',
-                        suffixIcon: IconButton(
-                          icon: Icon(Icons.remove_red_eye_outlined),
-                          onPressed: null,
+                        suffix: InkWell(
+                          onTap: _togglePasswordView,
+                          child: const Icon(Icons.visibility),
                         ),
                         filled: true,
                         fillColor: Colors.transparent,
@@ -77,7 +84,10 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   'Recovery Password',
-                  style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey.shade700),
                   textAlign: TextAlign.end,
                 ),
                 const SizedBox(height: 24),
@@ -106,10 +116,6 @@ class LoginPage extends StatelessWidget {
                   'Or continue with',
                   style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
                   textAlign: TextAlign.center,
-                ),
-                CustomPaint(
-                  size: const Size(200, 5),
-                  painter: CurvePainter(),
                 ),
                 const SizedBox(height: 24),
                 Row(
@@ -152,5 +158,11 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _togglePasswordView() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
   }
 }

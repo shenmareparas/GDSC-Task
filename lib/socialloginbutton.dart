@@ -13,7 +13,7 @@ class SocialLoginButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: () {},
       style: OutlinedButton.styleFrom(
-        side: const BorderSide(color: Colors.white),
+        side: const BorderSide(color: Colors.white, width: 2),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),

@@ -15,42 +15,72 @@ class StartPage extends StatelessWidget {
             ClipRRect(
                 borderRadius: BorderRadius.circular(25),
                 child: Image.asset('assets/girl.jpg')),
-            const SizedBox(height: 50),
+            const SizedBox(height: 40),
             const Text(
-              'Describe your\nDream job Here',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 29),
+              'Discover your\nDream job Here',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
             Text(
-              'Explore all the most exiting jobs roles\nbased on your intrest and study major',
+              'Explore all the most exiting jobs roles\nbased on your interest And study major',
               style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 50),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFF36969),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12))),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  child: Text(
-                    'Sign In',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12))),
+                    child: const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        'Register',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ),
                   ),
-                ),
+                  OutlinedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
+                      );
+                    },
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: Colors.white, width: 2),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

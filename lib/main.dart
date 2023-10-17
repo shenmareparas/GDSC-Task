@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gdsc_task/startpage.dart';
-import 'loginpage.dart';
 
 void main() {
   runApp(const MyApp());
